@@ -27,7 +27,7 @@ const Header = () => {
     try {
       const token = localStorage.getItem("token"); // Replace with your actual token
       const response = await axios.get(
-        "http://localhost:5001/api/users/profile",
+        `${NEXT_PUBLIC_BASE_URL}/api/users/profile`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
