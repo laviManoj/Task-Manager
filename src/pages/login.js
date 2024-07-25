@@ -70,13 +70,15 @@ export default function LoginPage() {
     try {
       const result = await signInWithPopup(auth, googleAuthProvider);
       const { user } = result;
+      console.log(user,'nnnnnnnnnnnnnnnnnnnnnnnnnnn')
 
       const response = await axios.post(
         `${process.env.NEXT_PUBLIC_BASE_URL}${routes.authentication.google}`,
         {
           name: user.displayName,
           email: user.email,
-          password: user.uid, // Use uid as password or handle it as per your logic
+          password: user.uid,
+           profile: user.photoURL // Use uid as password or handle it as per your logic
         },
         {
           headers: {
