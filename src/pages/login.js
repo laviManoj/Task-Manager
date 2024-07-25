@@ -50,17 +50,17 @@ export default function LoginPage() {
 
         if (response.status === 200) {
           const data = response.data;
-          localStorage.setItem('token', data.token); // Store actual token received from API
+          localStorage.setItem('token', data.token); 
           toast.success('Login successful!');
           setTimeout(() => {
-            router.push('/'); // Redirect to dashboard or home page
+            router.push('/'); 
           }, 2000);
         } else {
-          setErrors({ form: response.data.message }); // Set error message from API response
+          setErrors({ form: response.data.message }); 
           toast.error(response.data.message);
         }
       } catch (error) {
-        setErrors({ form: 'An error occurred. Please try again.' }); // Handle network or other errors
+        setErrors({ form: 'An error occurred. Please try again.' }); 
         toast.error('An error occurred. Please try again.');
       }
     }
